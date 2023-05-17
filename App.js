@@ -1,20 +1,35 @@
+/*
+* Todo:
+* -> Settings page
+* -> Product page?
+*/
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
+
+import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import {
+  NativeBaseProvider
+} from 'native-base';
+
+import { NavigationContainer } from '@react-navigation/native';
+
+import Navigator from './src/components/Navigator';
+import FilterModal from './src/components/FilterModal';
+
 export default function App() {
+  const [showFilter, setShowFilter] = useState(false);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider>
+      <NavigationContainer>
+        <StatusBar style="auto" />
+        <Navigator showFilter={showFilter} onShowFilterChange={setShowFilter}/>
+        <FilterModal showFilter={showFilter} onShowFilterChange={setShowFilter} />
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const styles = StyleSheet.create({});
