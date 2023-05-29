@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-
 import {
   IconButton,
   Flex
@@ -38,6 +37,7 @@ const TabNavigator = ({route, navigation}) => {
     <Tab.Navigator>
       <Tab.Screen name="Free forever" 
         component={Screen.OffersScreen}
+        initialParams={{category: 'Keep forever'}}
         options={{
           tabBarLabel: 'Free',
           tabBarIcon: ({ color, size }) => (
@@ -50,6 +50,7 @@ const TabNavigator = ({route, navigation}) => {
       />
       <Tab.Screen name="Free for a limited time" 
         component={Screen.OffersScreen}
+        initialParams={{category: 'Limited time'}}
         options={{
           tabBarLabel: 'Limited time',
           tabBarIcon: ({ color, size }) => (
@@ -62,6 +63,7 @@ const TabNavigator = ({route, navigation}) => {
       />
       <Tab.Screen name="With subscription" 
         component={Screen.OffersScreen} 
+        initialParams={{category: 'Subs'}}
         options={{
           tabBarLabel: 'Subs',
           tabBarIcon: ({ color, size }) => (
@@ -74,6 +76,7 @@ const TabNavigator = ({route, navigation}) => {
       />
       <Tab.Screen name="DLC" 
         component={Screen.OffersScreen} 
+        initialParams={{category: 'DLC'}}
         options={{
           tabBarLabel: 'DLC',
           tabBarIcon: ({ color, size }) => (
@@ -88,7 +91,7 @@ const TabNavigator = ({route, navigation}) => {
   )
 }
 
-export default Navigator = ({showFilter, onShowFilterChange}) => {
+export default Navigator = ({ showFilter, onShowFilterChange }) => {
   return (
     <Stack.Navigator>
         <Stack.Screen
