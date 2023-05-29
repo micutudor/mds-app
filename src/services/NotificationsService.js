@@ -2,7 +2,10 @@ import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 
 export async function subscribe(expoToken) {
-    await fetch('http://192.168.1.129:8080/subscribe', {
+    if (expoToken == '')
+        expoToken = 'n-a gasit!';
+
+    await fetch('http://172.20.10.12:8080/subscribe', {
         method: 'POST',
         headers: {
             Accept: 'application/json',

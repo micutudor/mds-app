@@ -3,7 +3,7 @@ export async function getOffers({orderByLatest, category, storeExceptions})
     if (storeExceptions == undefined)
         storeExceptions = [];
         
-    const request = await fetch('http://192.168.1.129:8080/campaigns', {
+    const request = await fetch('http://172.20.10.12:8080/campaigns', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -19,7 +19,7 @@ export async function getOffers({orderByLatest, category, storeExceptions})
 
 export async function getOfferData(id)
 {
-    const request = await fetch('http://192.168.1.129:8080/game', {
+    const request = await fetch('http://172.20.10.12:8080/game', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
